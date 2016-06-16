@@ -1,10 +1,13 @@
 html
   head
-    title = 드라마 정주행 소요시간 계산기
-    link(rel='stylesheet',href='/css/reset.css')
-    link(rel='stylesheet',href='/css/css.css')
+    title 드라마 정주행 소요시간 계산기
+    link(rel='stylesheet', href='/css/reset.css')
+    link(rel='stylesheet', href='/css/css.css')
+    script(type='text/javascript', src='/js/jquery-3.0.0.js')
+    script(type='text/javascript', src='/js/index.js')
   body
-    form(action='/' method='post')     
-      input(type='text' name='search_title' placeholder='검색할 드라마 제목을 입력하세요')
-      input(type='submit' value='검색' class='btn')
-  
+    div
+      form(action='/search' method='get')     
+        input(type='text' name='search_title' placeholder='검색할 드라마 제목을 입력하세요')
+        input(type='submit' value='검색' class='btn')
+      div
