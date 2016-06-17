@@ -1,3 +1,5 @@
+/* jshint node: true */
+
 'use strict';
 
 var express = require('express');
@@ -36,15 +38,24 @@ app.get('/search', function(req, res) {
       'Accept':'application/json'
     }}, function (error, response, body){
 
-      if(!error && response.statusCode == 200){
+      if(!error && response.statusCode === 200){
 
-       res.json(body);
+        body = JSON.parse(body);
+
+        res.set('Content-Type','application/json');
+        res.send(JSON.stringify(body));
+
+        //res.json(body);
 
       } else {
-        res.send('bad request !!')
+        res.send('bad request !!');
       }
 
     });
+});
+
+app.get('/detail', function() {
+
 });
 
 app.listen(3005, function() {
