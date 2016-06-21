@@ -7,7 +7,11 @@ html
     script(type='text/javascript', src='/js/index.js')
   body
     div
+      div.total_time
       form(action='/search' method='get')     
         input#search_title(type='text' name='search_title' placeholder='검색할 드라마 제목을 입력하세요')
-        input(type='submit' value='검색' class='btn')
+        select#select_season
+        input(type='button' id='search' value='검색' class='btn')
       ul.drama_list
+      ul.added_drama_list
+
