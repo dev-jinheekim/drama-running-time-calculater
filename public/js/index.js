@@ -9,14 +9,19 @@ $(function() {
   var season_data = '';
   var total_time = 0;
 
+  // bg change
   function display_bg(bg_path){
     var bg_img = 'url(' + IMG_ORIGIN + bg_path +') no-repeat fixed ';
     $('body').css('background', bg_img).css('background-size','100% auto');
-
-    // var bg_img = 'url(' + IMG_ORIGIN + bg_path +')';
-    // $('body').css('background', bg_img).css('background-attachment','fixed').css('background-repeat','repeat').css('background-size','100% auto');
   }
 
+  // search title
+  function display_title(title){
+    console.log(title);
+    $('#search_title').val(title);
+  }
+
+  // season selectbox add
   function display_selbox(seasons) {
     var i;
     var selbox = '<option value="all" selected="selected">전체시즌</option>';
@@ -32,12 +37,7 @@ $(function() {
     var day;
     var hour;
     var minute;
-    console.log('total_time: ' + total_time);
-    console.log('total_run_time: ' + total_run_time);
-
     total_time = total_time + total_run_time;
-
-    console.log('result:' + total_time);
 
     if (total_time >= 60) {
       hour = parseInt(total_time / 60);
@@ -57,7 +57,6 @@ $(function() {
 
     $('.total_time').text(txt);
   }
-
 
   function append_tv(tv) {
     var title = '<h2>' + tv.name + '</h2>';
@@ -96,7 +95,7 @@ $(function() {
 
   function append_seasons(season) {
     
-    // HACK
+    // HACK : movie db api modify request
     var run_time = season_data.episode_run_time[0]; // minute
     
     if (season === 'all') {
@@ -131,6 +130,7 @@ $(function() {
       success: function(data) {
         season_data = data;
         display_bg(data.backdrop_path);
+        display_title(data.original_name);
         display_selbox(data.number_of_seasons);
       }
     });
@@ -154,6 +154,7 @@ $(function() {
   $('body').on('click', '#search', function() {
     var season = $('#select_season option:selected').val();
     append_seasons(season);
+
   });
  
   // season item delete

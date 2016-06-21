@@ -34,7 +34,7 @@ app.get('/search', function(req, res) {
 
   request({
     method: 'GET',
-    url: 'http://api.themoviedb.org/3/search/tv?query=' + search_title + '&api_key=' + api_key, 
+    url: 'http://api.themoviedb.org/3/search/tv?query=' + encodeURIComponent(search_title) + '&api_key=' + api_key, 
     headers: {
       'Accept':'application/json'
     }}, function (error, response, body){
