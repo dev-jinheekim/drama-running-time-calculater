@@ -15,9 +15,8 @@ $(function() {
     $('body').css('background', bg_img).css('background-size','100% auto');
   }
 
-  // search title
+  // search title display
   function display_title(title){
-    console.log(title);
     $('#search_title').val(title);
   }
 
@@ -86,11 +85,18 @@ $(function() {
     var poster = '<img src="' + IMG_W185 + season.poster_path + '">';
     var season_num = '<span> season' + season.season_number + '</span>';
     var delete_btn = '<input type="button" value="삭제" class="season_del">';
-    $('.added_drama_list').append('<li data-id="' + id + '" data-run_time="' + total_run_time + '" class="drama_season_item">' + 
-                                  poster + 
-                                  season_num + 
-                                  delete_btn);
-    calculator(total_run_time);
+
+    // already exist season item check
+    if ($('#' + id).length){
+      var season_number = $('#' + id + '> span').text();
+      alert(season_number + '은 이미 추가된 드라마 입니다');
+    } else {
+      $('.added_drama_list').append('<li id="' + id + '" data-run_time="' + total_run_time + '" class="drama_season_item">' + 
+                                    poster + 
+                                    season_num + 
+                                    delete_btn);
+      calculator(total_run_time);
+    }
   }
 
   function append_seasons(season) {
@@ -164,7 +170,6 @@ $(function() {
     $(this).parent().remove();
     calculator(run_time);
   });
-
 
 });
 
