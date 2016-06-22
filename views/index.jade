@@ -1,17 +1,22 @@
 html
   head
     title 드라마 정주행 소요시간 계산기
-    link(rel='stylesheet', href='/css/reset.css')
+    link(rel='stylesheet', href='/bootstrap/dist/css/bootstrap.min.css')
     link(rel='stylesheet', href='/css/css.css')
-    script(type='text/javascript', src='/js/jquery-3.0.0.js')
+    script(type='text/javascript', src='/js/jquery-2.1.4.js')
+    script(type='text/javascript', src='/bootstrap/dist/js/bootstrap.js')
     script(type='text/javascript', src='/js/index.js')
-  body
-    div
+  body.body
+    div.container
+      h1.title 드라마정주행 소요시간 계산기 입니다.
       div.total_time
-      form(action='/search' method='get')     
-        input#search_title(type='text' name='search_title' placeholder='검색할 드라마 제목을 입력하세요')
-        select#select_season
-        input(type='button' id='search' value='검색' class='btn')
-      ul.drama_list
-      ul.added_drama_list
+      div.input-group
+        input#search_title.form-control(type='text' placeholder='검색할 드라마 제목을 입력하세요')
+        div.input-group-btn
+          button#select_season.btn.btn-default.dropdown-toggle(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
+            시즌선택
+            span.caret
+          ul.dropdown-menu 
+      ul.drama_list.row
+      ul.added_drama_list.row
 

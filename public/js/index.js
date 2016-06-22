@@ -11,8 +11,8 @@ $(function() {
 
   // bg change
   function display_bg(bg_path){
-    var bg_img = 'url(' + IMG_ORIGIN + bg_path +') no-repeat fixed ';
-    $('body').css('background', bg_img).css('background-size','100% auto');
+    var bg_img = 'url(' + IMG_ORIGIN + bg_path + ') no-repeat fixed ';
+    $('body').css('background', bg_img).css('background-size', '100% auto');
   }
 
   // search title display
@@ -23,12 +23,12 @@ $(function() {
   // season selectbox add
   function display_selbox(seasons) {
     var i;
-    var selbox = '<option value="all" selected="selected">전체시즌</option>';
-    for (i = 0; i <seasons; i++) {
-      selbox += '<option value="' + i + '">season ' + i + '</option>';
+    var selbox = '<li data-season="all">전체시즌</li>';
+    for (i = 0; i < seasons; i++) {
+      selbox += '<li data-season="' + i + '">season ' + i + '</li>';
     }
-    $('#select_season').empty();
-    $('#select_season').append(selbox);
+    $('.dropdown-menu').empty();
+    $('.dropdown-menu').append(selbox);
   }
 
   function calculator(total_run_time){
@@ -43,7 +43,7 @@ $(function() {
       minute = total_time % 60;
 
       if (hour >= 24) {
-        day = parseInt(hour/24);
+        day = parseInt(hour / 24);
         hour = hour % 24;
         txt = day + '일 ' + hour + '시간 ' + minute + '분'; 
       } else {
@@ -82,12 +82,19 @@ $(function() {
     var id = season.id; 
     var episode_cnt =  season.episode_count;
     var total_run_time = episode_cnt * run_time;
-    var poster = '<img src="' + IMG_W185 + season.poster_path + '">';
+    var poster;
     var season_num = '<span> season' + season.season_number + '</span>';
     var delete_btn = '<input type="button" value="삭제" class="season_del">';
 
+    if (season.poster_path) {
+      poster = '<img src="' + IMG_W185 + season.poster_path + '">';
+    } else {
+      poster = '<div class="poster-placeholder"></div>';
+    }
+
+
     // already exist season item check
-    if ($('#' + id).length){
+    if ($('#' + id).length) {
       var season_number = $('#' + id + '> span').text();
       alert(season_number + '은 이미 추가된 드라마 입니다');
     } else {
@@ -157,8 +164,8 @@ $(function() {
   });
 
   // season item add
-  $('body').on('click', '#search', function() {
-    var season = $('#select_season option:selected').val();
+  $('body').on('click', '.dropdown-menu > li', function() {
+    var season = $(this).data('season');
     append_seasons(season);
 
   });
