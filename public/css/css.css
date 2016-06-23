@@ -1,1 +1,133 @@
+.body{
+  background: #393a35 url("/img/bg.jpg") no-repeat fixed;
+  background-size: 100% auto;
+}
+.wrapbox{
+  padding: 30px;
+  margin: 70px auto 0px auto;
+  background-color: rgba(0,0,0,.45);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  z-index: 10;
+}
+.wrapbox .title{
+  font-size: 2.3em;
+  text-align: center;
+  color: white;
+}
+
+
+/*  drama title search */
+.drama_list{
+  list-style: none;
+  margin:0;
+  padding:0;
+}
+.drama_list li:first-child{
+  margin-top: 20px;
+}
+.drama_list li{
+  margin-bottom: 10px;
+}
+.drama_list li img{
+  width: 100%;
+  height: 100%;
+}
+.drama_list .media-body{
+  color: #dedede;
+}
+.drama_list .media-body h2{
+  font-size: 2em;
+}
+.drama_list .media-body p{
+  color: #9E9E9F;
+}
+.drama_list .thumb-placeholder{
+  position: relative; 
+  width: 130px;
+  height:187px;
+  text-align: center;
+  background-color: #333;
+}
+
+/* season item */
+.total_time{
+  font-size: 5em;
+  color: white;
+  text-align: center; 
+}
+.added_drama_list{
+  padding: 15px 0;
+  margin: 0 auto;
+  text-align: center;
+}
+.poster-placeholder{
+  width: 185px;
+  height: 267px;
+  background: url('/img/noimg.jpg') no-repeat;
+  background-size: 100% 100%;
+  text-align: center;
+} 
+/* REVIEW : thumb-placeholder */
+.poster-placeholder > span{
+  display: inline-block;
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 45px;
+  padding-top: 120px;
+}
+.drama_season_item{
+  display: inline-block;
+  border: solid 10px #ffffff;
+  background-color: #ffffff;
+  margin: 0 10px 10px 0;
+  color: #393a35;
+}
+.drama_season_item img{
+  width: 100%;
+  height: 100%;
+} 
+.drama_season_item p{
+  width: 185px;
+  overflow: hidden;
+  text-overflow: ellipse;
+  white-space: nowrap;
+  margin: 5px 0 0 0;
+}
+.drama_season_item span{
+  vertical-align: bottom;
+}
+.drama_season_item h3{
+  margin: 0 10px 0 0;
+  display: inline-block;
+}
+
+
+
+/* Mobile */
+@media (max-width:480px){
+  body{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 8px;
+    line-height: 1.42857143;
+    color: #333;
+  }
+  .media-body{
+    width: 100%;
+    display: block;
+  }
+}
+
+/* Tablet */
+@media (min-width:481px) and (max-width:768px) {
+  body{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 11px;
+    line-height: 1.42857143;
+    color: #333;
+  }
+}
 

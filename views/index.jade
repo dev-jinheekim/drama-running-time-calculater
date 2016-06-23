@@ -8,15 +8,18 @@ html
     script(type='text/javascript', src='/js/index.js')
   body.body
     div.container
-      h1.title 드라마정주행 소요시간 계산기 입니다.
-      div.total_time
-      div.input-group
-        input#search_title.form-control(type='text' placeholder='검색할 드라마 제목을 입력하세요')
-        div.input-group-btn
-          button#select_season.btn.btn-default.dropdown-toggle(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
-            시즌선택
-            span.caret
-          ul.dropdown-menu 
-      ul.drama_list.row
-      ul.added_drama_list.row
+      div.wrapbox
+        div.main_txt
+          h1.title 드라마정주행 소요시간 계산기
+          div.total_time
+        div.main-searchbox
+          div.input-group
+            input#search_title.form-control(type='text' placeholder='검색할 드라마 제목을 입력하세요')
+            div.input-group-btn
+              button#select_season.btn.btn-default.dropdown-toggle(type='button' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") 
+                정주행 할 시즌을 선택하세요 
+                span.caret
+              ul.dropdown-menu 
+          ul.drama_list.media
+      ul.added_drama_list
 

@@ -55,7 +55,7 @@ app.get('/search', function(req, res) {
     });
 });
 
-app.get('/detail', function(req,res) {
+app.get('/detail', function (req, res) {
   
   //search drama and choice title  
   var search_id = req.param('id');
@@ -78,7 +78,7 @@ app.get('/detail', function(req,res) {
     });
 });
 
-app.listen(3005, function() {
+app.listen(3005, function () {
   console.log('Connected 3005');
 });
 
