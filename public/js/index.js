@@ -66,7 +66,7 @@ $(function () {
     if (tv.poster_path) {
       poster = '<div class="thumb-placeholder"><img class="media-object" src="' + IMG_W185 + tv.poster_path + '"></div>';
     } else {
-      poster = '<div class="thumb-placeholder"></div>';
+      poster = '<div class="thumb-placeholder"><span>NO<br/>IMG</div>';
     }
 
     $('.drama_list').append('<li data-id="' + id + '" class="drama_list_item">' +
